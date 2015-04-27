@@ -19,6 +19,7 @@ import org.usfirst.frc364.Robot;
  */
 public class  setPointControl extends Command {
 	
+	
 	public setPointControl() {
     }
 
@@ -26,7 +27,8 @@ public class  setPointControl extends Command {
     }
 
     protected void execute() {
-    	int keepsetpoint;
+    	
+    	double keepsetpoint = 0;
     	
     	if(Robot.oi.liftSetPoint.get() == true){
     		Robot.liftSystem.setSetpoint(1.0);
