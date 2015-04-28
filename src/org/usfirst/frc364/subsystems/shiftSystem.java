@@ -17,10 +17,6 @@ import edu.wpi.first.wpilibj.*;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-
-/**
- *
- */
 public class shiftSystem extends Subsystem {
 	
     public DoubleSolenoid shiftPiston = RobotMap.shiftSystemshiftPiston;
