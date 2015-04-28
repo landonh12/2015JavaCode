@@ -24,7 +24,9 @@ public class  intakeControl extends Command {
     }
 
     protected void execute() {
-    	Robot.intakeSystem.intakeDrive.arcadeDrive(Robot.oi.controller.getX(), Robot.oi.controller.getY());
+    	double y = Robot.oi.controller.getY();
+    	double x = Robot.oi.controller.getX();
+    	Robot.intakeSystem.intakeDrive.arcadeDrive(y, x);
     }
 
     protected boolean isFinished() {

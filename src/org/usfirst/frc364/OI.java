@@ -32,9 +32,9 @@ public class OI {
     public Joystick controller;
 
     public OI() {
-
+    	
+    	//Init the commands on the controller
         controller = new Joystick(2);
-        
         transportSetPoint = new JoystickButton(controller, 1);
         transportSetPoint.whenPressed(new setPointControl());
         liftSetPoint = new JoystickButton(controller, 1);
@@ -45,14 +45,16 @@ public class OI {
         openArms.whenPressed(new armControl());
         closeArms = new JoystickButton(controller, 1);
         closeArms.whenPressed(new armControl());
-        rightJoystick = new Joystick(1);
         
+        //Init commands on the right stick
+        rightJoystick = new Joystick(1);
         shiftHigh = new JoystickButton(rightJoystick, 1);
         shiftHigh.whenPressed(new shiftControl());
         shiftLow = new JoystickButton(rightJoystick, 1);
         shiftLow.whenPressed(new shiftControl());
         leftJoystick = new Joystick(0);
         
+        //Init the commands on the left stick
         dropHooksDown = new JoystickButton(leftJoystick, 1);
         dropHooksDown.whileHeld(new canControl());
         pullHooksUp = new JoystickButton(leftJoystick, 1);

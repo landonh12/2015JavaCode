@@ -11,7 +11,9 @@
 
 package org.usfirst.frc364.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc364.Robot;
 
 /**
@@ -20,14 +22,20 @@ import org.usfirst.frc364.Robot;
 public class  autonomous extends Command {
 
     public autonomous() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    	requires(Robot.drivesystem);
     }
 
-    protected void initialize() {
-    }
+    protected void initialize() {}
 
     protected void execute() {
+    	Robot.drivesystem.robotDrive.tankDrive(0.65, -0.7);
+    	Timer.delay(0.5);
+    	Robot.drivesystem.robotDrive.tankDrive(0, 0);
+    	Timer.delay(2.5);
+    	Robot.drivesystem.robotDrive.tankDrive(-0.7, 0.75);
+    	Timer.delay(2.5);
+    	Robot.drivesystem.robotDrive.tankDrive(0, 0);
+    	Timer.delay(1000);
     }
 
     protected boolean isFinished() {
@@ -35,8 +43,9 @@ public class  autonomous extends Command {
     }
 
     protected void end() {
+    	end();
     }
 
-    protected void interrupted() {
-    }
+    protected void interrupted() {}
+    
 }

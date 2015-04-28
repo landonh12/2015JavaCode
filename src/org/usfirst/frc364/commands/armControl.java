@@ -12,6 +12,7 @@
 package org.usfirst.frc364.commands;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc364.OI;
@@ -26,19 +27,26 @@ public class  armControl extends Command {
     	requires(Robot.armSystem);
     }
 
-    protected void initialize() {
-    }
+    protected void initialize() {}
 
     protected void execute() {
+    	
+    	Value forward = DoubleSolenoid.Value.kForward;
+    	Value reverse = DoubleSolenoid.Value.kReverse;
+    	Value off = DoubleSolenoid.Value.kOff;
+    	
     	if(Robot.oi.closeArms.get() == true) {
-    		Robot.armSystem.armPiston.set(DoubleSolenoid.Value.kForward);
+    		Robot.armSystem.armPiston.set(forward);
     	}
+    	
     	if(Robot.oi.openArms.get() == true){
-    		Robot.armSystem.armPiston.set(DoubleSolenoid.Value.kReverse);
+    		Robot.armSystem.armPiston.set(reverse);
     	}
+    	
     	else{
-    		Robot.armSystem.armPiston.set(DoubleSolenoid.Value.kOff);
+    		Robot.armSystem.armPiston.set(off);
     	}
+    	
     }
 
     protected boolean isFinished() {
@@ -49,6 +57,6 @@ public class  armControl extends Command {
     	end();
     }
     
-    protected void interrupted() {
-    }
+    protected void interrupted() {}
+    
 }

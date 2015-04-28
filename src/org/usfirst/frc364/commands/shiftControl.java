@@ -12,6 +12,7 @@
 package org.usfirst.frc364.commands;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc364.Robot;
@@ -25,19 +26,26 @@ public class  shiftControl extends Command {
     	requires(Robot.shiftSystem);
     }
     
-    protected void initialize() {
-    }
+    protected void initialize() {}
 
     protected void execute() {
+    	
+    	Value forward = DoubleSolenoid.Value.kForward;
+    	Value reverse = DoubleSolenoid.Value.kReverse;
+    	Value off = DoubleSolenoid.Value.kOff;
+    	
     	if(Robot.oi.closeArms.get() == true) {
-    		Robot.shiftSystem.shiftPiston.set(DoubleSolenoid.Value.kForward);
+    		Robot.shiftSystem.shiftPiston.set(forward);
     	}
-    	if(Robot.oi.openArms.get() == true){
-    		Robot.shiftSystem.shiftPiston.set(DoubleSolenoid.Value.kReverse);
+    	
+    	if(Robot.oi.openArms.get() == true) {
+    		Robot.shiftSystem.shiftPiston.set(reverse);
     	}
-    	else{
-    		Robot.shiftSystem.shiftPiston.set(DoubleSolenoid.Value.kOff);
+    	
+    	else {
+    		Robot.shiftSystem.shiftPiston.set(off);
     	}
+    	
     }
 
     protected boolean isFinished() {
@@ -48,6 +56,6 @@ public class  shiftControl extends Command {
     	end();
     }
 
-    protected void interrupted() {
-    }
+    protected void interrupted() {}
+    
 }

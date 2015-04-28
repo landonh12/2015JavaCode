@@ -23,22 +23,25 @@ public class  canControl extends Command {
     	requires(Robot.canSystem);
     }
 
-    protected void initialize() {
-    }
+    protected void initialize() {}
 
     protected void execute() {
-    	if(Robot.oi.dropHooksDown.get() == true){
+
+    	if(Robot.oi.dropHooksDown.get() == true) {
     		Robot.canSystem.leftBurglar.set(1.0);
     		Robot.canSystem.rightBurglar.set(-1.0);
     	}
-    	if(Robot.oi.pullHooksUp.get() == true){
+    	
+    	if(Robot.oi.pullHooksUp.get() == true) {
     		Robot.canSystem.leftBurglar.set(-1.0);
     		Robot.canSystem.rightBurglar.set(1.0);
     	}
-    	else{
+    	
+    	else {
     		Robot.canSystem.leftBurglar.set(0);
     		Robot.canSystem.rightBurglar.set(0);
     	}
+    	
     }
     
     protected boolean isFinished() {
@@ -49,6 +52,6 @@ public class  canControl extends Command {
     	end();
     }
 
-    protected void interrupted() {
-    }
+    protected void interrupted() {}
+    
 }
