@@ -8,19 +8,16 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 package org.usfirst.frc364.commands;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc364.Robot;
 
 public class  armControl extends Command {
 
     public armControl() {
     	requires(Robot.armSystem);
+    	setTimeout(0.1);
     }
 
     protected void initialize() {}
@@ -30,6 +27,7 @@ public class  armControl extends Command {
     	if(Robot.liftSystem.getPosition() > 2.2) {
     		Robot.armSystem.open();
     	}
+    	
     	else {
     		
     		if(Robot.oi.closeArms.get() == true) {
@@ -39,21 +37,18 @@ public class  armControl extends Command {
     		if(Robot.oi.openArms.get() == true) {
     			Robot.armSystem.open();
     		}
-    	
-    		else {
-    			Robot.armSystem.off();
-    		}
     	}
     }
 
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     protected void end() {
-    	end();
+    	Robot.armSystem.off();
     }
     
-    protected void interrupted() {}
-    
+    protected void interrupted() {
+    	end();
+    }
 }

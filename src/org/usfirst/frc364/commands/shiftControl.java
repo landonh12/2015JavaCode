@@ -8,22 +8,16 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 package org.usfirst.frc364.commands;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc364.Robot;
 
-/**
- *
- */
 public class  shiftControl extends Command {
 
     public shiftControl() {
     	requires(Robot.shiftSystem);
+    	setTimeout(0.1);
     }
     
     protected void initialize() {}
@@ -37,21 +31,18 @@ public class  shiftControl extends Command {
     	if(Robot.oi.shiftLow.get() == true) {
     		Robot.shiftSystem.shiftLow();
     	}
-    	
-    	else {
-    		Robot.shiftSystem.shiftNothing();
-    	}
-    	
     }
 
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     protected void end() {
-    	end();
+    	Robot.shiftSystem.shiftNothing();
     }
 
-    protected void interrupted() {}
+    protected void interrupted() {
+    	end();
+    }
     
 }

@@ -18,6 +18,7 @@ public class  setPointControl extends Command {
 	
 	public setPointControl() {
 		requires(Robot.liftSystem);
+		setTimeout(0.1);
     }
 
     protected void initialize(){
@@ -37,7 +38,7 @@ public class  setPointControl extends Command {
     }
 
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     protected void end() {
