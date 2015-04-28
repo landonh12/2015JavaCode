@@ -12,7 +12,6 @@
 package org.usfirst.frc364;
 
 import org.usfirst.frc364.commands.*;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
 
@@ -35,29 +34,29 @@ public class OI {
     	
     	//Init the commands on the controller
         controller = new Joystick(2);
-        transportSetPoint = new JoystickButton(controller, 1);
+        transportSetPoint = new JoystickButton(controller, 6);
         transportSetPoint.whenPressed(new setPointControl());
-        liftSetPoint = new JoystickButton(controller, 1);
+        liftSetPoint = new JoystickButton(controller, 4);
         liftSetPoint.whenPressed(new setPointControl());
-        dropSetPoint = new JoystickButton(controller, 1);
+        dropSetPoint = new JoystickButton(controller, 2);
         dropSetPoint.whenPressed(new setPointControl());
-        openArms = new JoystickButton(controller, 1);
+        openArms = new JoystickButton(controller, 7);
         openArms.whenPressed(new armControl());
-        closeArms = new JoystickButton(controller, 1);
+        closeArms = new JoystickButton(controller, 8);
         closeArms.whenPressed(new armControl());
         
         //Init commands on the right stick
         rightJoystick = new Joystick(1);
         shiftHigh = new JoystickButton(rightJoystick, 1);
         shiftHigh.whenPressed(new shiftControl());
-        shiftLow = new JoystickButton(rightJoystick, 1);
+        shiftLow = new JoystickButton(rightJoystick, 2);
         shiftLow.whenPressed(new shiftControl());
         leftJoystick = new Joystick(0);
         
         //Init the commands on the left stick
-        dropHooksDown = new JoystickButton(leftJoystick, 1);
+        dropHooksDown = new JoystickButton(leftJoystick, 4);
         dropHooksDown.whileHeld(new canControl());
-        pullHooksUp = new JoystickButton(leftJoystick, 1);
+        pullHooksUp = new JoystickButton(leftJoystick, 5);
         pullHooksUp.whileHeld(new canControl());
 
     }

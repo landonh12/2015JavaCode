@@ -13,10 +13,11 @@ package org.usfirst.frc364.subsystems;
 
 import org.usfirst.frc364.RobotMap;
 import org.usfirst.frc364.commands.*;
-import edu.wpi.first.wpilibj.*;
 
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class liftSystem extends PIDSubsystem {
 	
@@ -28,7 +29,10 @@ public class liftSystem extends PIDSubsystem {
         setAbsoluteTolerance(0.2);
         getPIDController().setContinuous(false);
         LiveWindow.addActuator("liftSystem", "PIDSubsystem Controller", getPIDController());
-        getPIDController().setOutputRange(-1.0, 0.5);
+        getPIDController().setOutputRange(-0.5, 1.0);
+        SmartDashboard.putNumber("setpoint", getSetpoint());
+        SmartDashboard.putNumber("position", getPosition());
+        enable();
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to

@@ -15,6 +15,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc364.commands.*;
 import org.usfirst.frc364.subsystems.*;
 
@@ -51,6 +53,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void disabledPeriodic() {
+    	SmartDashboard.putNumber("position", Robot.liftSystem.getPosition());
         Scheduler.getInstance().run();
     }
 

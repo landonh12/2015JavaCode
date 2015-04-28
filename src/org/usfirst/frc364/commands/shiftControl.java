@@ -34,11 +34,11 @@ public class  shiftControl extends Command {
     	Value reverse = DoubleSolenoid.Value.kReverse;
     	Value off = DoubleSolenoid.Value.kOff;
     	
-    	if(Robot.oi.closeArms.get() == true) {
+    	if(Robot.oi.shiftHigh.get() == true) {
     		Robot.shiftSystem.shiftPiston.set(forward);
     	}
     	
-    	if(Robot.oi.openArms.get() == true) {
+    	if(Robot.oi.shiftLow.get() == true) {
     		Robot.shiftSystem.shiftPiston.set(reverse);
     	}
     	

@@ -17,9 +17,6 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc364.Robot;
 
-/**
- *
- */
 public class  armControl extends Command {
 
     public armControl() {
@@ -34,18 +31,23 @@ public class  armControl extends Command {
     	Value reverse = DoubleSolenoid.Value.kReverse;
     	Value off = DoubleSolenoid.Value.kOff;
     	
-    	if(Robot.oi.closeArms.get() == true) {
-    		Robot.armSystem.armPiston.set(forward);
-    	}
-    	
-    	if(Robot.oi.openArms.get() == true){
+    	if(Robot.liftSystem.getPosition() > 2.2) {
     		Robot.armSystem.armPiston.set(reverse);
     	}
+    	else {
+    		
+    		if(Robot.oi.closeArms.get() == true) {
+    			Robot.armSystem.armPiston.set(forward);
+    		}
     	
-    	else{
-    		Robot.armSystem.armPiston.set(off);
+    		if(Robot.oi.openArms.get() == true) {
+    			Robot.armSystem.armPiston.set(reverse);
+    		}
+    	
+    		else {
+    			Robot.armSystem.armPiston.set(off);
+    		}
     	}
-    	
     }
 
     protected boolean isFinished() {

@@ -14,36 +14,25 @@ package org.usfirst.frc364.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc364.Robot;
 
-/**
- *
- */
 public class  setPointControl extends Command {
 	
-	
 	public setPointControl() {
+		requires(Robot.liftSystem);
     }
 
-    protected void initialize() {
+    protected void initialize(){
     }
 
     protected void execute() {
     	
-    	double keepsetpoint = 0;
-    	
     	if(Robot.oi.liftSetPoint.get() == true){
-    		Robot.liftSystem.setSetpoint(1.0);
-    		keepsetpoint = 1.0;
+    		Robot.liftSystem.setSetpoint(1.8);
     	}
     	if(Robot.oi.dropSetPoint.get() == true){
-    		Robot.liftSystem.setSetpoint(1.0);
-    		keepsetpoint = 1.0;
+    		Robot.liftSystem.setSetpoint(2.0);
     	}
     	if(Robot.oi.transportSetPoint.get() == true){
-    		Robot.liftSystem.setSetpoint(1.0);
-    		keepsetpoint = 1.0;
-    	}
-    	else{
-    		Robot.liftSystem.setSetpoint(keepsetpoint);
+    		Robot.liftSystem.setSetpoint(2.2);
     	}
     }
 

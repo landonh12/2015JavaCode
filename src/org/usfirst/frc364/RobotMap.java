@@ -55,7 +55,7 @@ public class RobotMap {
         intakeSystemleftArmMotor = new Talon(5);
         LiveWindow.addActuator("intakeSystem", "leftArmMotor", (Talon) intakeSystemleftArmMotor);
         
-        intakeSystemrightArmMotor = new Talon(8);
+        intakeSystemrightArmMotor = new Talon(6);
         LiveWindow.addActuator("intakeSystem", "rightArmMotor", (Talon) intakeSystemrightArmMotor);
         
         intakeSystemintakeDrive = new RobotDrive(intakeSystemleftArmMotor, intakeSystemrightArmMotor);
@@ -69,19 +69,19 @@ public class RobotMap {
         liftSystemliftMotor = new Talon(4);
         LiveWindow.addActuator("liftSystem", "liftMotor", (Talon) liftSystemliftMotor);
         
-        liftSystemliftPot = new AnalogInput(0);
+        liftSystemliftPot = new AnalogInput(3);
         LiveWindow.addSensor("liftSystem", "liftPot", liftSystemliftPot);
         
-        canSystemleftBurglar = new Talon(7);
+        canSystemleftBurglar = new Talon(8);
         LiveWindow.addActuator("canSystem", "leftBurglar", (Talon) canSystemleftBurglar);
         
-        canSystemrightBurglar = new Talon(6);
+        canSystemrightBurglar = new Talon(7);
         LiveWindow.addActuator("canSystem", "rightBurglar", (Talon) canSystemrightBurglar);
         
-        shiftSystemshiftPiston = new DoubleSolenoid(0, 0, 1);      
+        shiftSystemshiftPiston = new DoubleSolenoid(0, 2, 3);      
         LiveWindow.addActuator("shiftSystem", "shiftPiston", shiftSystemshiftPiston);
         
-        armSystemarmPiston = new DoubleSolenoid(0, 2, 3);      
+        armSystemarmPiston = new DoubleSolenoid(0, 0, 1);      
         LiveWindow.addActuator("armSystem", "armPiston", armSystemarmPiston);
         
     }
