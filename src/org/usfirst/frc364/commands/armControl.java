@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc364.OI;
 import org.usfirst.frc364.Robot;
 
 /**
