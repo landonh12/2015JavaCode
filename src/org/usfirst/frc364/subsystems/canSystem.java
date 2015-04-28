@@ -29,5 +29,20 @@ public class canSystem extends Subsystem {
     public void initDefaultCommand() {
         setDefaultCommand(new canControl());
     }
+    
+    public void raiseBurglars() {
+    	leftBurglar.set(-1.0);
+    	rightBurglar.set(1.0);
+    }
+    
+    public void lowerBurglars()	{
+    	leftBurglar.set(1.0);
+    	rightBurglar.set(-1.0);
+    }
+    
+    public void burglarsOff() {
+    	leftBurglar.set(0);
+    	rightBurglar.set(0);
+    }
 }
 

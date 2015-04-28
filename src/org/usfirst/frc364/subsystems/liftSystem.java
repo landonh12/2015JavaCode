@@ -33,10 +33,18 @@ public class liftSystem extends PIDSubsystem {
         SmartDashboard.putNumber("setpoint", getSetpoint());
         SmartDashboard.putNumber("position", getPosition());
         enable();
-        // Use these to get going:
-        // setSetpoint() -  Sets where the PID controller should move the system
-        //                  to
-        // enable() - Enables the PID controller.
+    }
+    
+    public void setDropSetpoint() {
+    	setSetpoint(2.2);
+    }
+    
+    public void setLiftSetpoint() {
+    	setSetpoint(2.0);
+    }
+    
+    public void setTransportSetpoint() {
+    	setSetpoint(1.8);
     }
     
     public void initDefaultCommand() {

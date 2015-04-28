@@ -26,13 +26,13 @@ public class  setPointControl extends Command {
     protected void execute() {
     	
     	if(Robot.oi.liftSetPoint.get() == true){
-    		Robot.liftSystem.setSetpoint(1.8);
+    		Robot.liftSystem.setLiftSetpoint();
     	}
     	if(Robot.oi.dropSetPoint.get() == true){
-    		Robot.liftSystem.setSetpoint(2.0);
+    		Robot.liftSystem.setDropSetpoint();
     	}
     	if(Robot.oi.transportSetPoint.get() == true){
-    		Robot.liftSystem.setSetpoint(2.2);
+    		Robot.liftSystem.setTransportSetpoint();
     	}
     }
 

@@ -13,8 +13,9 @@ package org.usfirst.frc364.subsystems;
 
 import org.usfirst.frc364.RobotMap;
 import org.usfirst.frc364.commands.*;
-import edu.wpi.first.wpilibj.*;
 
+import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -24,9 +25,25 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class armSystem extends Subsystem {
 
     public DoubleSolenoid armPiston = RobotMap.armSystemarmPiston;
-
+    
+	Value forward = DoubleSolenoid.Value.kForward;
+	Value reverse = DoubleSolenoid.Value.kReverse;
+	Value off = DoubleSolenoid.Value.kOff;
+	
     public void initDefaultCommand() {
         setDefaultCommand(new armControl());
+    }
+    
+    public void open() {
+    	armPiston.set(forward);
+    }
+    
+    public void close() {
+    	armPiston.set(reverse);
+    }
+    
+    public void off() {
+    	armPiston.set(off);
     }
 }
 

@@ -27,25 +27,21 @@ public class  armControl extends Command {
 
     protected void execute() {
     	
-    	Value forward = DoubleSolenoid.Value.kForward;
-    	Value reverse = DoubleSolenoid.Value.kReverse;
-    	Value off = DoubleSolenoid.Value.kOff;
-    	
     	if(Robot.liftSystem.getPosition() > 2.2) {
-    		Robot.armSystem.armPiston.set(reverse);
+    		Robot.armSystem.open();
     	}
     	else {
     		
     		if(Robot.oi.closeArms.get() == true) {
-    			Robot.armSystem.armPiston.set(forward);
+    			Robot.armSystem.close();
     		}
     	
     		if(Robot.oi.openArms.get() == true) {
-    			Robot.armSystem.armPiston.set(reverse);
+    			Robot.armSystem.open();
     		}
     	
     		else {
-    			Robot.armSystem.armPiston.set(off);
+    			Robot.armSystem.off();
     		}
     	}
     }

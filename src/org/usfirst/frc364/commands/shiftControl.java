@@ -30,20 +30,16 @@ public class  shiftControl extends Command {
 
     protected void execute() {
     	
-    	Value forward = DoubleSolenoid.Value.kForward;
-    	Value reverse = DoubleSolenoid.Value.kReverse;
-    	Value off = DoubleSolenoid.Value.kOff;
-    	
     	if(Robot.oi.shiftHigh.get() == true) {
-    		Robot.shiftSystem.shiftPiston.set(forward);
+    		Robot.shiftSystem.shiftHigh();
     	}
     	
     	if(Robot.oi.shiftLow.get() == true) {
-    		Robot.shiftSystem.shiftPiston.set(reverse);
+    		Robot.shiftSystem.shiftLow();
     	}
     	
     	else {
-    		Robot.shiftSystem.shiftPiston.set(off);
+    		Robot.shiftSystem.shiftNothing();
     	}
     	
     }

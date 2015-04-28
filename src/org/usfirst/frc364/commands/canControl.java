@@ -28,18 +28,15 @@ public class  canControl extends Command {
     protected void execute() {
 
     	if(Robot.oi.dropHooksDown.get() == true) {
-    		Robot.canSystem.leftBurglar.set(1.0);
-    		Robot.canSystem.rightBurglar.set(-1.0);
+    		Robot.canSystem.lowerBurglars();
     	}
     	
     	if(Robot.oi.pullHooksUp.get() == true) {
-    		Robot.canSystem.leftBurglar.set(-1.0);
-    		Robot.canSystem.rightBurglar.set(1.0);
+    		Robot.canSystem.raiseBurglars();
     	}
     	
     	else {
-    		Robot.canSystem.leftBurglar.set(0);
-    		Robot.canSystem.rightBurglar.set(0);
+    		Robot.canSystem.burglarsOff();
     	}
     	
     }
