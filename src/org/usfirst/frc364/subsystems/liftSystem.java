@@ -11,6 +11,7 @@
 
 package org.usfirst.frc364.subsystems;
 
+import org.usfirst.frc364.Robot;
 import org.usfirst.frc364.RobotMap;
 import org.usfirst.frc364.commands.*;
 
@@ -23,6 +24,7 @@ public class liftSystem extends PIDSubsystem {
 	
     SpeedController liftMotor = RobotMap.liftSystemliftMotor;
     AnalogInput liftPot = RobotMap.liftSystemliftPot;
+    public double manualSetPoint;
     
     public liftSystem() {
         super("liftSystem", 0.125, 0.0, 0.0);
@@ -33,6 +35,10 @@ public class liftSystem extends PIDSubsystem {
         SmartDashboard.putNumber("setpoint", getSetpoint());
         SmartDashboard.putNumber("position", getPosition());
         enable();
+    }
+    	
+    public void manualControl() {
+    	setSetpoint(Robot.oi.controller.getRawAxis(4)/5 + liftPot.getVoltage());
     }
     
     public void setDropSetpoint() {
