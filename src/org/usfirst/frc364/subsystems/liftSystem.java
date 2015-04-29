@@ -63,7 +63,7 @@ public class liftSystem extends PIDSubsystem {
     		liftMotor.pidWrite(-output * 3);
     	}
     	else {
-    		liftMotor.pidWrite(-output);
+    		liftMotor.pidWrite(-output * 2);
     	}
     }
 }
