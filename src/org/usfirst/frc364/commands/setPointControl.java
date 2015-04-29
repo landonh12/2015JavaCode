@@ -16,6 +16,7 @@ import org.usfirst.frc364.Robot;
 
 public class  setPointControl extends Command {
 	
+	
 	public setPointControl() {
 		requires(Robot.liftSystem);
 		setTimeout(0.1);
@@ -26,14 +27,21 @@ public class  setPointControl extends Command {
 
     protected void execute() {
     	
-    	if(Robot.oi.liftSetPoint.get() == true){
-    		Robot.liftSystem.setLiftSetpoint();
+    	if(Robot.oi.controller.getRawAxis(4) < 0.05 && Robot.oi.controller.getRawAxis(4) > -0.05) {
+    		
+    		if(Robot.oi.liftSetPoint.get() == true){
+    			Robot.liftSystem.setLiftSetpoint();
+    		}
+    		if(Robot.oi.dropSetPoint.get() == true){
+    			Robot.liftSystem.setDropSetpoint();
+    		}
+    		if(Robot.oi.transportSetPoint.get() == true){
+    			Robot.liftSystem.setTransportSetpoint();
+    		}
     	}
-    	if(Robot.oi.dropSetPoint.get() == true){
-    		Robot.liftSystem.setDropSetpoint();
-    	}
-    	if(Robot.oi.transportSetPoint.get() == true){
-    		Robot.liftSystem.setTransportSetpoint();
+    	
+    	else {
+    		Robot.liftSystem.manualControl();
     	}
     }
 
