@@ -35,6 +35,12 @@ public class liftSystem extends PIDSubsystem {
     	
     public void manualControl() {
     	setSetpoint(Robot.oi.controller.getRawAxis(3) + liftPot.getVoltage());
+    	if(getSetpoint() > 3.19) {
+    		setSetpoint(3.19);
+    	}
+    	if(getSetpoint() < 0.9) {
+    		setSetpoint(0.9);
+    	}
     }
     
     public void setDropSetpoint() {
@@ -42,7 +48,7 @@ public class liftSystem extends PIDSubsystem {
     }
     
     public void setLiftSetpoint() {
-    	setSetpoint(2.0);
+    	setSetpoint(1.8);
     }
     
     public void setTransportSetpoint() {
@@ -62,8 +68,11 @@ public class liftSystem extends PIDSubsystem {
     	if(isSetpointTransport == 2.9) {
     		liftMotor.pidWrite(-output * 3);
     	}
-    	else {
+    	else if(liftMotor.get() > 0) {
     		liftMotor.pidWrite(-output * 2);
+    	}
+    	else {
+    		liftMotor.pidWrite(-output * 1.25);
     	}
     }
 }

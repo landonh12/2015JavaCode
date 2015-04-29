@@ -12,6 +12,7 @@
 package org.usfirst.frc364.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc364.Robot;
 
 public class  setPointControl extends Command {
@@ -21,7 +22,7 @@ public class  setPointControl extends Command {
 		requires(Robot.liftSystem);
     }
 
-    protected void initialize(){
+    protected void initialize() {
     }
 
     protected void execute() {

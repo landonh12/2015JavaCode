@@ -10,7 +10,9 @@
 
 package org.usfirst.frc364.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc364.Robot;
 
 public class  armControl extends Command {

@@ -34,15 +34,15 @@ public class OI {
     	
     	//Init the commands on the controller
         controller = new Joystick(2);
-        transportSetPoint = new JoystickButton(controller, 6);
+        transportSetPoint = new JoystickButton(controller, 1);
         transportSetPoint.whenPressed(new setPointControl());
-        liftSetPoint = new JoystickButton(controller, 4);
+        liftSetPoint = new JoystickButton(controller, 6);
         liftSetPoint.whenPressed(new setPointControl());
         dropSetPoint = new JoystickButton(controller, 2);
         dropSetPoint.whenPressed(new setPointControl());
-        openArms = new JoystickButton(controller, 7);
+        openArms = new JoystickButton(controller, 8);
         openArms.whenPressed(new armControl());
-        closeArms = new JoystickButton(controller, 8);
+        closeArms = new JoystickButton(controller, 7);
         closeArms.whenPressed(new armControl());
         
         //Init commands on the right stick
