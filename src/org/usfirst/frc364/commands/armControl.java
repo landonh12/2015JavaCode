@@ -20,22 +20,23 @@ public class  armControl extends Command {
     	setTimeout(0.1);
     }
 
-    protected void initialize() {}
+    protected void initialize() {
+    }
 
     protected void execute() {
     	
-    	if(Robot.liftSystem.getPosition() > 2.2) {
+    	if(Robot.liftSystem.getPosition() > 2.3 && Robot.liftSystem.getPosition() < 3.1) {
     		Robot.armSystem.open();
     	}
     	
     	else {
     		
     		if(Robot.oi.closeArms.get() == true) {
-    			Robot.armSystem.close();
+    			Robot.armSystem.open();
     		}
     	
     		if(Robot.oi.openArms.get() == true) {
-    			Robot.armSystem.open();
+    			Robot.armSystem.close();
     		}
     	}
     }

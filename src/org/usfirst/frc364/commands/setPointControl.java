@@ -19,7 +19,6 @@ public class  setPointControl extends Command {
 	
 	public setPointControl() {
 		requires(Robot.liftSystem);
-		setTimeout(0.1);
     }
 
     protected void initialize(){
@@ -27,7 +26,7 @@ public class  setPointControl extends Command {
 
     protected void execute() {
     	
-    	if(Robot.oi.controller.getRawAxis(4) < 0.05 && Robot.oi.controller.getRawAxis(4) > -0.05) {
+    	if(Robot.oi.controller.getRawAxis(3) < 0.05 && Robot.oi.controller.getRawAxis(3) > -0.05) {
     		
     		if(Robot.oi.liftSetPoint.get() == true){
     			Robot.liftSystem.setLiftSetpoint();
@@ -46,7 +45,7 @@ public class  setPointControl extends Command {
     }
 
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     protected void end() {

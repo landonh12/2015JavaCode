@@ -71,9 +71,17 @@ public class Robot extends IterativeRobot {
     
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        Robot.liftSystem.enable();
+        SmartDashboardVariables();
     }
 
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    public void SmartDashboardVariables() {
+    	SmartDashboard.putNumber("lift output", Robot.liftSystem.liftMotor.get());
+    	SmartDashboard.putNumber("lift setpoint", Robot.liftSystem.getSetpoint());
+    	SmartDashboard.putNumber("lift position", Robot.liftSystem.getPosition());
     }
 }

@@ -18,31 +18,27 @@ import org.usfirst.frc364.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class liftSystem extends PIDSubsystem {
 	
-    SpeedController liftMotor = RobotMap.liftSystemliftMotor;
+    public SpeedController liftMotor = RobotMap.liftSystemliftMotor;
     AnalogInput liftPot = RobotMap.liftSystemliftPot;
-    public double manualSetPoint;
     
     public liftSystem() {
-        super("liftSystem", 0.125, 0.0, 0.0);
-        setAbsoluteTolerance(0.2);
+        super("liftSystem", 1, 0.0, 0.1);
+        setAbsoluteTolerance(0);
         getPIDController().setContinuous(false);
         LiveWindow.addActuator("liftSystem", "PIDSubsystem Controller", getPIDController());
-        getPIDController().setOutputRange(-0.5, 1.0);
-        SmartDashboard.putNumber("setpoint", getSetpoint());
-        SmartDashboard.putNumber("position", getPosition());
-        enable();
+        getPIDController().setOutputRange(-1.0, 0.5);
+        setSetpoint(2);
     }
     	
     public void manualControl() {
-    	setSetpoint(Robot.oi.controller.getRawAxis(4)/5 + liftPot.getVoltage());
+    	setSetpoint(Robot.oi.controller.getRawAxis(3) + liftPot.getVoltage());
     }
     
     public void setDropSetpoint() {
-    	setSetpoint(2.2);
+    	setSetpoint(3.19);
     }
     
     public void setLiftSetpoint() {
@@ -50,7 +46,7 @@ public class liftSystem extends PIDSubsystem {
     }
     
     public void setTransportSetpoint() {
-    	setSetpoint(1.8);
+    	setSetpoint(2.9);
     }
     
     public void initDefaultCommand() {
@@ -62,6 +58,12 @@ public class liftSystem extends PIDSubsystem {
     }
     
     protected void usePIDOutput(double output) {
-        liftMotor.pidWrite(output);
+    	double isSetpointTransport = getSetpoint();
+    	if(isSetpointTransport == 2.9) {
+    		liftMotor.pidWrite(-output * 3);
+    	}
+    	else {
+    		liftMotor.pidWrite(-output);
+    	}
     }
 }
