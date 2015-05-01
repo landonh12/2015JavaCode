@@ -44,7 +44,7 @@ public class  setPointControl extends Command {
     	}
     	
     	else {
-    		//Robot.liftSystem.manualControl();
+    		Robot.liftSystem.manualControl();
     	}
     }
 
