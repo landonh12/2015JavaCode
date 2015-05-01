@@ -21,6 +21,7 @@ public class  canControl extends Command {
 
     public canControl() {
     	requires(Robot.canSystem);
+    	setTimeout(0.1);
     }
 
     protected void initialize() {}
@@ -42,13 +43,15 @@ public class  canControl extends Command {
     }
     
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     protected void end() {
-    	end();
+    	Robot.canSystem.burglarsOff();
     }
 
-    protected void interrupted() {}
+    protected void interrupted() {
+    	end();
+    }
     
 }

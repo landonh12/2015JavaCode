@@ -83,5 +83,8 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putNumber("lift output", Robot.liftSystem.liftMotor.get());
     	SmartDashboard.putNumber("lift setpoint", Robot.liftSystem.getSetpoint());
     	SmartDashboard.putNumber("lift position", Robot.liftSystem.getPosition());
+    	SmartDashboard.putBoolean("lift", Robot.oi.pullHooksUp.get());
+    	SmartDashboard.putBoolean("drop", Robot.oi.dropHooksDown.get());
+    	
     }
 }

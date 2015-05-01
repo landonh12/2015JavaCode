@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class RobotMap {
+	
     public static SpeedController drivesystemleftFront;
     public static SpeedController drivesystemleftRear;
     public static SpeedController drivesystemrightFront;
@@ -72,11 +73,11 @@ public class RobotMap {
         liftSystemliftPot = new AnalogInput(3);
         LiveWindow.addSensor("liftSystem", "liftPot", liftSystemliftPot);
         
-        canSystemleftBurglar = new Talon(8);
-        LiveWindow.addActuator("canSystem", "leftBurglar", (Talon) canSystemleftBurglar);
+        canSystemleftBurglar = new Victor(8);
+        LiveWindow.addActuator("canSystem", "leftBurglar", (Victor) canSystemleftBurglar);
         
-        canSystemrightBurglar = new Talon(7);
-        LiveWindow.addActuator("canSystem", "rightBurglar", (Talon) canSystemrightBurglar);
+        canSystemrightBurglar = new Victor(7);
+        LiveWindow.addActuator("canSystem", "rightBurglar", (Victor) canSystemrightBurglar);
         
         shiftSystemshiftPiston = new DoubleSolenoid(0, 2, 3);      
         LiveWindow.addActuator("shiftSystem", "shiftPiston", shiftSystemshiftPiston);

@@ -28,6 +28,7 @@ public class OI {
     public JoystickButton dropSetPoint;
     public JoystickButton liftSetPoint;
     public JoystickButton transportSetPoint;
+    public JoystickButton pickupATote;
     public Joystick controller;
 
     public OI() {
@@ -40,6 +41,8 @@ public class OI {
         liftSetPoint.whenPressed(new setPointControl());
         dropSetPoint = new JoystickButton(controller, 2);
         dropSetPoint.whenPressed(new setPointControl());
+        pickupATote = new JoystickButton(controller, 3);
+        pickupATote.whenPressed(new setPointControl());
         openArms = new JoystickButton(controller, 8);
         openArms.whenPressed(new armControl());
         closeArms = new JoystickButton(controller, 7);

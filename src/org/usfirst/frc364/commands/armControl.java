@@ -34,11 +34,11 @@ public class  armControl extends Command {
     	else {
     		
     		if(Robot.oi.closeArms.get() == true) {
-    			Robot.armSystem.open();
+    			Robot.armSystem.close();
     		}
     	
     		if(Robot.oi.openArms.get() == true) {
-    			Robot.armSystem.close();
+    			Robot.armSystem.open();
     		}
     	}
     }

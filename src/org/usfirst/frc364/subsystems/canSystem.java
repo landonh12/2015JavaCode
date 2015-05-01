@@ -31,13 +31,13 @@ public class canSystem extends Subsystem {
     }
     
     public void raiseBurglars() {
-    	leftBurglar.set(-1.0);
-    	rightBurglar.set(1.0);
+    	leftBurglar.set(-1);
+    	rightBurglar.set(1);
     }
     
     public void lowerBurglars()	{
-    	leftBurglar.set(1.0);
-    	rightBurglar.set(-1.0);
+    	leftBurglar.set(-1 * -1);
+    	rightBurglar.set(1 * -1);
     }
     
     public void burglarsOff() {

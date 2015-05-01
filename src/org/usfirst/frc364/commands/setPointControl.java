@@ -29,19 +29,22 @@ public class  setPointControl extends Command {
     	
     	if(Robot.oi.controller.getRawAxis(3) < 0.05 && Robot.oi.controller.getRawAxis(3) > -0.05) {
     		
-    		if(Robot.oi.liftSetPoint.get() == true){
+    		if(Robot.oi.liftSetPoint.get() == true) {
     			Robot.liftSystem.setLiftSetpoint();
     		}
-    		if(Robot.oi.dropSetPoint.get() == true){
+    		if(Robot.oi.dropSetPoint.get() == true) {
     			Robot.liftSystem.setDropSetpoint();
     		}
-    		if(Robot.oi.transportSetPoint.get() == true){
+    		if(Robot.oi.transportSetPoint.get() == true) {
     			Robot.liftSystem.setTransportSetpoint();
+    		}
+    		if(Robot.oi.pickupATote.get() == true) {
+    			Robot.liftSystem.pickupATote();
     		}
     	}
     	
     	else {
-    		Robot.liftSystem.manualControl();
+    		//Robot.liftSystem.manualControl();
     	}
     }
 

@@ -27,7 +27,7 @@ public class  driveControl extends Command {
     }
 
     protected void execute() {
-    	Robot.drivesystem.robotDrive.tankDrive(Robot.oi.getleftJoystick(), Robot.oi.getrightJoystick());
+    	Robot.drivesystem.robotDrive.tankDrive(Robot.oi.controller.getRawAxis(1), Robot.oi.controller.getRawAxis(3));
     }
 
     protected boolean isFinished() {

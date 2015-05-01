@@ -55,6 +55,13 @@ public class liftSystem extends PIDSubsystem {
     	setSetpoint(2.9);
     }
     
+    public void pickupATote() {
+    	setSetpoint(3.19);
+    	Robot.armSystem.armPiston.set(DoubleSolenoid.Value.kForward);
+    	Timer.delay(1);
+    	setSetpoint(1.8);
+    }
+    
     public void initDefaultCommand() {
     	setDefaultCommand(new setPointControl());
     }
